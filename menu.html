@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    .dropdown-menu img {
+      width: 100px; 
+      height: auto; 
+    }
+    .card {
+      min-height: 300px; 
+      max-height: 300px; 
+      overflow: hidden; 
+    }
+    
+    .card-img-top {
+      width: 100%;
+      height: 200px;
+      object-fit: cover; 
+    }
+    
+    .card-body {
+      height: calc(100% - 200px); 
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card-title, .card-text {
+      flex-grow: 1; 
+    }
+    
+  </style>
+<body>
+  
+<nav class="navbar navbar-expand-lg navbar-light bg-light">     <!-- NAVBAR -->
+    <a class="navbar-brand" href="#">FLORBALL SHOP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="menu.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="index.html">Florbalová hůl</a>
+            <a class="dropdown-item" href="test.html">Brankářská výbava</a>
+            <a class="dropdown-item" href="obuv.html">Sportovní obuv</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-primary" type="button" onclick="openCart()">Otevřít košík</button>
+      </form>
+    </div>
+</nav>                                           <!-- konec - NAVBAR -->
+
+
+<div class="container">   <!-- začátek karet --> 
+    <h2>Florbalový eshop</h2>
+        <p>Vyberte si z naší nabídky florbalek:</p>
+        <h3>Výběr z nabídky</h3>
+        <div class="row"> <!-- Začátek řádku -->
+            <div class="col-md-4">
+              <a href="index.html">
+                <div class="card">
+                  <img class="card-img-top" src="https://www.florbal.com/assets/src/images/poradce/poradce-1.jpg" alt="Oxdog Hyperlight HES 27 BR Round MBC">
+                  <div class="card-body">
+                    <h4 class="card-title">Florbalové hole</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+            <div class="col-md-4">
+              <a href="test.html">
+                <div class="card">
+                  <img class="card-img-top" src="https://www.florbal.com/files/e/48240/fcom-goalie-gloves_w240_h240.jpeg" alt="Oxdog Hyperlight HES 27 BR Round MBC">
+                  <div class="card-body">
+                    <h4 class="card-title">Brankářská výbava</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+            <div class="col-md-4">
+              <a href="obuv.html">
+                <div class="card">
+                  <img class="card-img-top" src="https://www.florbal.com/files/e/84190/asics-gel-resolution-9-sapphire-black_w240_h240.jpeg" alt="Oxdog Hyperlight HES 27 BR Round MBC">
+                  <div class="card-body">
+                    <h4 class="card-title">Sportovní obuv</h4>
+                  </div>
+                </div>
+              </a>
+            </div> <!-- Konec řádku -->
+</div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cartModalLabel">Obsah košíku</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Výběr florbalky</th>
+                  <th>Cena</th>
+                  <th>Množství</th>
+                </tr>
+              </thead>
+              <tbody id="cartTableBody">
+              </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+          <button type="button" class="btn btn-danger" id="clearCartButton">Vymazat košík</button>
+          <button type="button" class="btn btn-primary">Objednat</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+    <script>
+
+      var cart = {};
+      
+
+      function addToCart(itemName, itemPrice) {
+
+        if (itemName in cart) {
+          cart[itemName].quantity += 1;
+        }
+
+        else {
+          cart[itemName] = {
+            price: itemPrice,
+            quantity: 1
+          };
+        }
+      }
+
+  function updateCartItemQuantity(itemName, quantity) {
+
+    cart[itemName].quantity = quantity;
+    
+
+    updateCartDisplay();
+  }
+  
+
+  function calculateTotalPrice() {
+    var totalPrice = 0;
+    
+    for (var itemName in cart) {
+      var item = cart[itemName];
+      var itemTotalPrice = item.price * item.quantity;
+      totalPrice += itemTotalPrice;
+    }
+    
+    return totalPrice;
+  }
+      
+      function updateCartDisplay() {
+
+        var cartTableBody = document.getElementById('cartTableBody');
+
+        cartTableBody.innerHTML = '';
+
+        for (var itemName in cart) {
+          var item = cart[itemName];
+          var itemTotalPrice = item.price * item.quantity;
+          
+          var row = '<tr><td>' + itemName + '</td><td>' + item.price + '</td><td>' + item.quantity + '</td></tr>';
+          cartTableBody.innerHTML += row;
+        }
+
+    var totalPrice = calculateTotalPrice();
+    var footer = '<tr><td colspan="2">Celková cena:</td><td>' + totalPrice + '</td></tr>';
+    cartTableBody.innerHTML += footer;
+  }
+
+    document.getElementById('clearCartButton').addEventListener('click', function() {
+
+      cart = {};
+      updateCartDisplay();
+    });
+
+      updateCartDisplay();
+      
+      $('#cartModal').modal('hide');
+    ;
+    
+      function openCart() {
+        updateCartDisplay();
+
+        $('#cartModal').modal('show');
+      }
+      function updateCartItemQuantity(itemName, quantity) {
+        cart[itemName].quantity = quantity;
+        
+      
+        updateCartDisplay();
+      }
+      
+    </script>  <!-- koneckaret --> 
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="cart.js"></script> 
+</body>
+</html>

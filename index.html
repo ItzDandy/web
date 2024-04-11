@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Florbalový eshop</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+  .dropdown-menu img {
+    width: 100px; 
+    height: auto; 
+  }
+</style>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">     <!-- NAVBAR -->
+  <a class="navbar-brand" href="#">FLORBALL SHOP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="menu.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="index.html">Florbalová hůl</a>
+          <a class="dropdown-item" href="test.html">Brankářská výbava</a>
+          <a class="dropdown-item" href="obuv.html">Sportovní obuv</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-primary" type="button" onclick="openCart()">Otevřít košík</button>
+    </form>
+  </div>
+</nav>                                           <!-- konec - NAVBAR -->
+
+ 
+<div class="container">   <!-- začátek karet --> 
+  <h2>Florbalový eshop</h2>
+  <p>Vyberte si z naší nabídky florbalek:</p>
+  <h3>Oxdog</h3>
+<div class="row">   <!-- Začátek prvního řádku -->
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/77170/oxdog-hyperlight-hes-27-br-round-mbc_w620_h620.jpeg" alt="Oxdog Hyperlight HES 27 BR Round MBC">
+      <div class="card-body">
+        <h4 class="card-title">Oxdog Hyperlight HES 27 BR Round MBC</h4>
+        <p class="card-text">4 475 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Oxdog Hyperlight HES 27 BR Round MBC', 4475)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://static.necy.eu/i/g/450x450/149828.webp" alt="OXDOG ULTRALIGHT HES 29 WT OVAL MBC2">
+      <div class="card-body">
+        <h4 class="card-title">OXDOG ULTRALIGHT HES 29 WT OVAL MBC2</h4>
+        <p class="card-text">3 490 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('OXDOG ULTRALIGHT HES 29 WT OVAL MBC2', 3490)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://static.necy.eu/i/g/450x450/149829.webp" alt="OXDOG ULTIMATELIGHT HES 27 CO SWEOVAL MBC2">
+      <div class="card-body">
+        <h4 class="card-title">OXDOG ULTIMATELIGHT HES 27 CO SWEOVAL MBC2</h4>
+        <p class="card-text">4 725 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('OXDOG ULTIMATELIGHT HES 27 CO SWEOVAL MBC2', 4725)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+</div> <!-- Konec prvního řádku -->
+<h3>Salming</h3>
+<div class="row"> <!-- Začátek druhého řádku -->
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/72136/salming-hawk-tourlite-f31-smu_w620_h620.jpeg" alt="Salming Hawk Tourlite F31 SMU">
+      <div class="card-body">
+        <h4 class="card-title">Salming Hawk Tourlite F31 SMU</h4>
+        <p class="card-text">1 590 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Salming Hawk Tourlite F31 SMU', 1590)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/75935/salming-q1-powerlite-aero-29-neon-green_w620_h620.jpeg" alt="Salming Q1 Powerlite Aero 29 Neon Green">
+      <div class="card-body">
+        <h4 class="card-title">Salming Q1 Powerlite Aero 29 Neon Green</h4>
+        <p class="card-text">2 999 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Salming Q1 Powerlite Aero 29 Neon Green', 2999)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="https://www.florbal.com/files/e/76326/salming-raven-powerlite-aero-by-langer-2_w620_h620.jpeg" alt="Salming Raven PowerLite Aero 27 By Langer">
+        <div class="card-body">
+          <h4 class="card-title">Salming Raven PowerLite Aero 27 By Langer</h4>
+          <p class="card-text">3999 Kč</p>
+          <button class="btn btn-primary" type="button" onclick="addToCart('Salming Raven PowerLite Aero 27 By Langer', 3999)">Přidat do košíku</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Konec druhého řádku -->
+
+  <h3>Unihoc</h3>
+<div class="row"> <!-- Začátek třetího řádku -->
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/72790/24151-unilite-evolab-29_w620_h620.jpeg" alt="UNIHOC UNILITE EVOLAB 29 Black-Silver">
+      <div class="card-body">
+        <h4 class="card-title">UNIHOC UNILITE EVOLAB 29 Black-Silver</h4>
+        <p class="card-text">4 585 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('UNIHOC UNILITE EVOLAB 29 Black-Silver', 4585)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/66744/23785-epic-carbskin-curve-1-0-26-black_w620_h620.jpeg" alt="Unihoc Epic Carbskin FL Curve 1.0° 26 Black">
+      <div class="card-body">
+        <h4 class="card-title">Unihoc Epic Carbskin FL Curve 1.0° 26 Black</h4>
+        <p class="card-text">4 399 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Unihoc Epic Carbskin FL Curve 1.0° 26 Black', 4399)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="https://www.florbal.com/files/e/72805/24091-player-top-light-29_w620_h620.jpeg" alt="Unihoc Player Top Light 29 Gold-Black">
+        <div class="card-body">
+          <h4 class="card-title">Unihoc Player Top Light 29 Gold-Black</h4>
+          <p class="card-text">2 099 Kč</p>
+          <button class="btn btn-primary" type="button" onclick="addToCart('Unihoc Player Top Light 29 Gold-Black', 2099)">Přidat do košíku</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Konec třetího řádku -->
+  
+  <h3>Zone</h3>
+<div class="row"> <!-- Začátek čtvrtého řádku -->
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/75865/43441-hyper-al-27-pro-blackrainbow-oval_w620_h620.jpeg" alt="Zone Hyper Airlight 27 PRO Oval Black-Rainbow">
+      <div class="card-body">
+        <h4 class="card-title">Zone Hyper Airlight 27 PRO Oval Black-Rainbow</h4>
+        <p class="card-text">3 079 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Zone Hyper Airlight 27 PRO Oval Black-Rainbow', 3079)">Přidat do košíku</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="https://www.florbal.com/files/e/75869/43451-dream-al-26-pro-whiterainbow_w620_h620.jpeg" alt="Zone Dream Airlight 26 PRO White-Rainbow">
+      <div class="card-body">
+        <h4 class="card-title">Zone Dream Airlight 26 PRO White-Rainbow</h4>
+        <p class="card-text">3 255 Kč</p>
+        <button class="btn btn-primary" type="button" onclick="addToCart('Zone Dream Airlight 26 PRO White-Rainbow', 3255)">Přidat do košíku</button>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="https://www.florbal.com/files/e/75847/43331-harder-airlight-29-black-purple_w620_h620.jpeg" alt="Zone Harder Airlight 29 Black-Purple 2nd Drop">
+        <div class="card-body">
+          <h4 class="card-title">Zone Harder Airlight 29 Black-Purple 2nd Drop</h4>
+          <p class="card-text">3 219 Kč</p>
+          <button class="btn btn-primary" type="button" onclick="addToCart('Zone Harder Airlight 29 Black-Purple 2nd Drop', 3219)">Přidat do košíku</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Konec čtvrtého řádku -->
+  <br>
+  
+     <!-- Modal -->
+     <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cartModalLabel">Obsah košíku</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Výběr florbalky</th>
+                  <th>Cena</th>
+                  <th>Množství</th>
+                </tr>
+              </thead>
+              <tbody id="cartTableBody">
+              </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+          <button type="button" class="btn btn-danger" id="clearCartButton">Vymazat košík</button>
+          <button type="button" class="btn btn-primary">Objednat</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+    <script>
+
+      var cart = {};
+      
+
+      function addToCart(itemName, itemPrice) {
+
+        if (itemName in cart) {
+          cart[itemName].quantity += 1;
+        }
+
+        else {
+          cart[itemName] = {
+            price: itemPrice,
+            quantity: 1
+          };
+        }
+      }
+
+  function updateCartItemQuantity(itemName, quantity) {
+
+    cart[itemName].quantity = quantity;
+    
+
+    updateCartDisplay();
+  }
+  
+
+  function calculateTotalPrice() {
+    var totalPrice = 0;
+    
+    for (var itemName in cart) {
+      var item = cart[itemName];
+      var itemTotalPrice = item.price * item.quantity;
+      totalPrice += itemTotalPrice;
+    }
+    
+    return totalPrice;
+  }
+      
+      function updateCartDisplay() {
+
+        var cartTableBody = document.getElementById('cartTableBody');
+
+        cartTableBody.innerHTML = '';
+
+        for (var itemName in cart) {
+          var item = cart[itemName];
+          var itemTotalPrice = item.price * item.quantity;
+          
+          var row = '<tr><td>' + itemName + '</td><td>' + item.price + '</td><td>' + item.quantity + '</td></tr>';
+          cartTableBody.innerHTML += row;
+        }
+
+    var totalPrice = calculateTotalPrice();
+    var footer = '<tr><td colspan="2">Celková cena:</td><td>' + totalPrice + '</td></tr>';
+    cartTableBody.innerHTML += footer;
+  }
+
+    document.getElementById('clearCartButton').addEventListener('click', function() {
+
+      cart = {};
+      updateCartDisplay();
+    });
+
+      updateCartDisplay();
+      
+      $('#cartModal').modal('hide');
+    ;
+    
+      function openCart() {
+        updateCartDisplay();
+
+        $('#cartModal').modal('show');
+      }
+      function updateCartItemQuantity(itemName, quantity) {
+        cart[itemName].quantity = quantity;
+        
+      
+        updateCartDisplay();
+      }
+      
+    </script>  <!-- koneckaret --> 
+
+
+</div>
+</body>
+</html>
